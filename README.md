@@ -88,17 +88,6 @@ The exporter provides the following metrics, all of which are labeled with the `
 | `awair_pm25_ug_m3`                   | The measured density of particulate matter < 2.5µm.              | µg/m³                  |
 | `awair_pm10_estimated_ug_m3`         | The estimated density of particulate matter < 10µm.              | µg/m³                  |
 
-## Next Steps
-
-The project files are complete. The final step is to build the Docker image.
-
-Run the following command from the project's root directory:
-```sh
-docker build -t awair-exporter:latest .
-```
-
-**Note:** This command requires Docker to be installed and running. You may need to run this command with `sudo` or ensure your user is in the `docker` group to avoid permission errors.
-
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
