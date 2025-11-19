@@ -4,13 +4,22 @@
 PUID=${PUID:-99}
 PGID=${PGID:-100}
 
-# Create group and user
-groupadd -g ${PGID} -o awair
-useradd --shell /bin/sh -u ${PUID} -g ${PGID} -o -c "" -m awair
+# Check if group exists
+if [ -z "$(getent group ${PGID})" ]; then
+  # Group doesn't exist, create it
+  addgroup -g ${PGID} -S awair
+  GROUP_NAME=awair
+else
+  # Group exists, get its name
+  GROUP_NAME=$(getent group ${PGID} | cut -d: -f1)
+fi
+
+# Create user
+adduser -u ${PUID} -G ${GROUP_NAME} -S -s /bin/sh awair
 
 # Set permissions
-chown -R awair:awair /config
-chown awair:awair /root/awair-exporter
+chown -R awair:${GROUP_NAME} /config
+chown awair:${GROUP_NAME} /usr/local/bin/awair-exporter
 
 # Drop privileges and execute the main process
-exec su-exec awair:awair "$@"
+exec su-exec awair:${GROUP_NAME} "$@"

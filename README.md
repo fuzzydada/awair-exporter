@@ -41,7 +41,7 @@ hosts:
 
 To run the container, you need to map the listening port and provide the configuration.
 
-**Example `docker run` command:**
+**Example `docker run` command (using Docker Hub image):**
 This command uses environment variables for configuration and maps a local directory for persistent configuration, which is common practice on Unraid.
 
 ```sh
@@ -95,4 +95,3 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## License
 
 This project is licensed under the MIT License.
-

@@ -23,7 +23,7 @@ FROM alpine:latest
 # Install necessary packages
 # ca-certificates: for making HTTPS calls (if ever needed)
 # su-exec: for dropping root privileges
-RUN apk --no-cache add ca-certificates su-exec
+RUN apk --no-cache add ca-certificates su-exec bash
 
 # Create a directory for configuration
 RUN mkdir /config
