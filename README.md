@@ -52,7 +52,7 @@ docker run -d \
   -e PUID=99 \
   -e PGID=100 \
   -e AWAIR_HOSTS="192.168.1.101,192.168.1.102" \
-  your-docker-image-name:latest
+  feistyostrich/awair-exporter:latest
 ```
 
 For Unraid, you can use the "Add Container" button in the Docker tab and fill in the appropriate repository, port mappings, volume mappings, and environment variables.
